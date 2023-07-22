@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/form.css">
+    
+</head>
+
+<body>
+    <div class="main">
+
+        <form action="" onsubmit="return validateForm()">
+            <h2>Login</h2> 
+            <input type="text" id="username" placeholder="user name"><br>
+            <p id="userError" class="error"></p>
+
+            <input type="password" id="password" placeholder="password"><br>
+            <p id="passError" class="error"></p>
+
+            <input type="submit" id="submit">
+        </form>
+    </div>
+    <script>
+        let user = document.getElementById("username");
+        let pass = document.getElementById("password");
+        let flag=1;
+
+        function validateForm() {
+            if (user.value == "") {
+                document.getElementById("userError").innerHTML="User is empty.";
+                flag=0;
+            }else if(user.value.length<5){
+                document.getElementById("userError").innerHTML="user name length is too short.";
+                flag=0;
+            }else{
+                document.getElementById("userError").innerHTML="";
+                flag=1;
+            }
+            if(pass.value==""){
+                document.getElementById("passError").innerHTML="password is empty."
+                flag=0;
+            }else if(pass.value.length<5){
+                document.getElementById("passError").innerHTML="password length is short."
+                flag=0;
+            }else{
+                document.getElementById("passError").innerHTML="";
+                flag=1;
+            }
+            if(flag){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
